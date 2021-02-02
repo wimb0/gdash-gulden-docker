@@ -2,9 +2,8 @@ FROM php:7.4-apache
 
 LABEL maintainer="Jorijn Schrijvershof <jorijn@jorijn.com>"
 
-# run with eg `docker build --build-arg GULDEN_VERSION=2.0.0.15 --build-arg GDASH_VERSION=1.1`
-ARG GULDEN_VERSION
-ARG GDASH_VERSION
+ENV GULDEN_VERSION=2.3.5
+ENV GDASH_VERSION=1.2
 
 # install the necessary software packages
 RUN apt-get update \
@@ -20,9 +19,9 @@ VOLUME /opt/gulden/datadir
 EXPOSE 80 9231
 
 # download and configure the Gulden node software
-RUN wget https://github.com/Gulden/gulden-official/releases/download/v${GULDEN_VERSION}/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz -P /opt/gulden/ \
-    && tar -xvf /opt/gulden/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz -C /opt/gulden/gulden \
-    && rm /opt/gulden/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz
+RUN wget https://github.com/Gulden/gulden-official/releases/download/v${GULDEN_VERSION}/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz -P /opt/gulden/ \
+    && tar -xvf /opt/gulden/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz -C /opt/gulden/gulden \
+    && rm /opt/gulden/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz
 
 # download and configure the G-DASH software
 RUN wget https://g-dash.nl/download/G-DASH-${GDASH_VERSION}.tar.gz -P /var/www \
