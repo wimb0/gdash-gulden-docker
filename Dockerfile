@@ -1,10 +1,13 @@
-FROM php:7.2-apache
+FROM php:7.4-apache
 
 LABEL maintainer="Jorijn Schrijvershof <jorijn@jorijn.com>"
 
 # run with eg `docker build --build-arg GULDEN_VERSION=2.0.0.15 --build-arg GDASH_VERSION=1.1`
-ARG GULDEN_VERSION
-ARG GDASH_VERSION
+ARG ARG_GULDEN_VERSION
+ARG ARG_GDASH_VERSION
+
+ENV GULDEN_VERSION=$ARG_GULDEN_VERSION
+ENV GULDEN_VERSION=$ARG_GDASH_VERSION
 
 # install the necessary software packages
 RUN apt-get update \
