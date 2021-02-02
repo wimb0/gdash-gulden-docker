@@ -7,7 +7,7 @@ ENV GDASH_VERSION=1.2
 # Install packages and remove default server definition
 RUN apk --no-cache add php7 php7-fpm php7-opcache php7-mysqli php7-json php7-openssl php7-curl \
     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype php7-session \
-    php7-mbstring php7-gd nginx supervisor curl wget tar nano && \
+    php7-mbstring php7-gd nginx supervisor curl wget tar nano bash && \
     rm /etc/nginx/conf.d/default.conf
 
 # Configure nginx
@@ -53,6 +53,8 @@ WORKDIR /var/www/html
 
 # Expose the port nginx is reachable on
 EXPOSE 8080 9231
+
+ADD docker-entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD [""]

@@ -13,6 +13,6 @@ if [ ! -e "$GULDEN_CONFIG" ]; then
     echo "minimallogging=1" >> ${GULDEN_CONFIG}
 fi
 
-chown www-data.www-data ${GULDEN_CONFIG}
+chown nobody.nobody ${GULDEN_CONFIG}
 
 supervisord -c /etc/supervisor/conf.d/supervisord.conf
