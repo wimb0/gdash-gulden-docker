@@ -1,14 +1,12 @@
-FROM php:7.4-apache
+FROM trafex/alpine-nginx-php7:latest
 
-LABEL maintainer="Jorijn Schrijvershof <jorijn@jorijn.com>"
+LABEL maintainer="Wim <info@wimbo.nl>"
 
 ENV GULDEN_VERSION=2.3.5
 ENV GDASH_VERSION=1.2
 
 # install the necessary software packages
-RUN apt-get update \
-    && apt-get upgrade -y \
-    && apt-get install -y wget tar cron nano curl supervisor
+RUN apk add --no-cache wget tar nano curl supervisor
 
 # create the gulden server directory
 RUN mkdir -p /opt/gulden/datadir \
