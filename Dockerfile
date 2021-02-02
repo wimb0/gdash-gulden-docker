@@ -6,7 +6,7 @@ ENV GULDEN_VERSION=2.3.5
 ENV GDASH_VERSION=1.2
 
 # install the necessary software packages
-RUN apk add --no-cache wget tar nano curl supervisor
+RUN sudo apk add --no-cache wget tar nano curl supervisor
 
 # create the gulden server directory
 RUN mkdir -p /opt/gulden/datadir \
