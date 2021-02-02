@@ -17,9 +17,9 @@ VOLUME /opt/gulden/datadir
 EXPOSE 80 9231
 
 # download and configure the Gulden node software
-RUN wget https://github.com/Gulden/gulden-official/releases/download/v${GULDEN_VERSION}/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz -P /opt/gulden/ \
-    && tar -xvf /opt/gulden/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz -C /opt/gulden/gulden \
-    && rm /opt/gulden/Gulden-${GULDEN_VERSION}-armv7l-linux.tar.gz
+RUN wget https://github.com/Gulden/gulden-official/releases/download/v${GULDEN_VERSION}/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz -P /opt/gulden/ \
+    && tar -xvf /opt/gulden/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz -C /opt/gulden/gulden \
+    && rm /opt/gulden/Gulden-${GULDEN_VERSION}-x86_64-linux.tar.gz
 
 # download and configure the G-DASH software
 RUN wget https://g-dash.nl/download/G-DASH-${GDASH_VERSION}.tar.gz -P /var/www \
