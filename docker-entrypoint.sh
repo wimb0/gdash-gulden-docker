@@ -15,4 +15,4 @@ fi
 
 chown www-data.www-data ${GULDEN_CONFIG}
 
-supervisord -c /etc/supervisor.conf
+supervisord -c /etc/supervisor/conf.d/supervisord.conf
